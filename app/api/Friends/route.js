@@ -99,7 +99,7 @@ export async function GET(req) {
     const userId = userQuery.rows[0].user_id;
 
     const res = await pool.query(
-      "SELECT friend_id FROM friends WHERE user_id = $1",
+      "SELECT friend_id FROM friends WHERE user_id = $1 UNION SELECT user_id FROM friends WHERE friend_id = $1",
       [userId]
     );
 
@@ -160,8 +160,8 @@ export async function DELETE(req) {
 
   try {
     const query = `
-      DELETE FROM friends 
-      WHERE (user_id = $1 AND friend_id = $2) 
+      DELETE FROM friends
+      WHERE (user_id = $1 AND friend_id = $2)
       OR (user_id = $2 AND friend_id = $1)
     `;
     const values = [userid1, userid2];

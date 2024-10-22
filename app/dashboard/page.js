@@ -9,7 +9,7 @@ function Dashboard() {
 
   const fetchBills = async () => {
     const res = await fetch(
-      `/api/bill/pending?user=${localStorage.getItem("username")}`,
+      `/api/bill/split/pending?user=${localStorage.getItem("username")}`,
       {
         method: "GET",
         headers: {
