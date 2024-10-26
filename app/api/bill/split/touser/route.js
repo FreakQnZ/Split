@@ -1,6 +1,5 @@
 import pool from "@/app/utils/connectDB";
 import { NextResponse } from "next/server";
-import { binary } from "pg/lib/defaults";
 
 //  Gives the list of people who owe me money, or a specific participant
 
