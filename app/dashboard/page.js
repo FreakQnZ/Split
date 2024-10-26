@@ -55,9 +55,9 @@ function Dashboard() {
             className="bg-gray-100 p-4 flex flex-col gap-4 "
             style={{ height: "90vh" }}
         >
-            <div className=" bg-white rounded-lg min-h-72 flex flex-col">
+            <div className=" bg-white rounded-lg lg:min-h-72 flex flex-col">
                 <h2 className="text-lg font-semibold mb-4 p-4">Dashboard</h2>
-                <div className="stats shadow m-10">
+                <div className="stats stats-vertical lg:stats-horizontal shadow m-10">
                     <div className="stat">
                         <div className="stat-figure text-secondary">
                             <svg
@@ -115,6 +115,7 @@ function Dashboard() {
                         {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
                     </div>
                 </div>
+
             </div>
             <div className=" rounded-lg bg-white p-2 flex-1">
                 <h2 className="text-lg font-semibold mb-4 p-4">Unsettled Bills</h2>
