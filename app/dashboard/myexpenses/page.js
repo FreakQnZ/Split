@@ -36,7 +36,7 @@ const MyExpensesGrid = () => {
   return (
     <div className="bg-gray-100 flex justify-center items-center p-4">
       <div
-        className="flex flex-col lg:flex-row gap-6 w-full max-w-7xl"
+        className="flex flex-col lg:flex-row gap-6 w-full"
         style={{ height: "86vh" }}
       >
         <div className="flex-1 bg-white shadow-lg rounded-lg p-6">
@@ -55,7 +55,9 @@ const MyExpensesGrid = () => {
           ) : (
             <>
               {error && <p className="text-red-500 text-center">{error}</p>}
+              <div className="overflow-scroll" style={{ height: "70vh" }}>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+
                 {expenses.map((expense) => (
                   <div
                     key={expense.id}
@@ -72,6 +74,7 @@ const MyExpensesGrid = () => {
                     </div>
                   </div>
                 ))}
+              </div>
               </div>
             </>
           )}
