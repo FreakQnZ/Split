@@ -17,6 +17,8 @@ const SplitBill = () => {
   const [split, setSplit] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [removedParticipantIds, setRemovedParticipantIds] = useState([]);
+  const [btnloading, setBtnLoading] = useState(false);
+  const [btnDed, setBtnDed] = useState(false);
 
   const currentUser = localStorage.getItem("username");
 
@@ -211,13 +213,23 @@ const SplitBill = () => {
 
   // Function to handle submission (e.g., send data to a server)
   const handleSubmit = async () => {
+    if (btnDed) {
+        return;
+    }
+    console.log("here")
+    setBtnLoading(true);
+    setBtnDed(true);
     // Remove the check for friends.length when isEditing is true
     if (!billId) {
       setError("Please enter a valid bill ID.");
+      setBtnDed(false);
+      setBtnLoading(false);
       return;
     }
     if (!isEditing && friends.length === 0) {
       setError("Please add at least one participant.");
+      setBtnDed(false);
+      setBtnLoading(false);
       return;
     }
 
@@ -226,6 +238,8 @@ const SplitBill = () => {
 
     if (!isEditing && amounts.some((amount) => amount <= 0)) {
       setError("Please ensure all participants have a valid amount.");
+      setBtnDed(false);
+      setBtnLoading(false);
       return;
     }
 
@@ -235,6 +249,8 @@ const SplitBill = () => {
       setError(
         "The total amount allocated to participants exceeds the bill amount."
       );
+      setBtnDed(false);
+      setBtnLoading(false);
       return;
     }
 
@@ -294,14 +310,14 @@ const SplitBill = () => {
           setFriends([]);
           setTimeout(() => {
             router.push("/dashboard/bills");
-          }, 2000);
+          }, 500);
         } else {
           if (deleteAllParticipants) {
             setIsModalOpen(true);
             setFriends([]);
             setTimeout(() => {
               router.push("/dashboard/bills");
-            }, 2000);
+            }, 500);
           }
           setSplit(true);
         }
@@ -506,6 +522,9 @@ const SplitBill = () => {
                   onClick={handleSubmit}
                 >
                   Submit
+                  {btnloading && (
+                    <span className=" absolute right-12 loading loading-spinner"></span>
+                  )}
                 </button>
               ) : (
                 <>
@@ -520,6 +539,9 @@ const SplitBill = () => {
                     onClick={handleSubmit}
                   >
                     Submit
+                    {btnloading && (
+                    <span className=" absolute right-12 loading loading-spinner"></span>
+                  )}
                   </button>
                 </>
               )}

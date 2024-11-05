@@ -57,6 +57,7 @@ function Dashboard() {
         >
             <div className=" bg-white rounded-lg lg:min-h-72 flex flex-col">
                 <h2 className="text-lg font-semibold mb-4 p-4">Dashboard</h2>
+                <h2 className="text-lg font-semibold pl-4">Welcome {localStorage.getItem("username")}</h2>
                 <div className="stats stats-vertical lg:stats-horizontal shadow m-10">
                     <div className="stat">
                         <div className="stat-figure text-secondary">
