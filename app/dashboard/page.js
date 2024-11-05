@@ -73,7 +73,7 @@ function Dashboard() {
                             </svg>
                         </div>
                         <div className="stat-title">Total Expense</div>
-                        <div className="stat-value">{totalExpense}</div>
+                        <div className="stat-value">{totalExpense? totalExpense : 0}</div>
                         {/* <div className="stat-desc">Jan 1st - Feb 1st</div> */}
                     </div>
 
@@ -92,7 +92,7 @@ function Dashboard() {
                             </svg>
                         </div>
                         <div className="stat-title">Funds to Arrive</div>
-                        <div className="stat-value">{toArrive}</div>
+                        <div className="stat-value">{toArrive ? toArrive : 0}</div>
                         {/* <div className="stat-desc">↗︎ 400 (22%)</div> */}
                     </div>
 
@@ -111,7 +111,7 @@ function Dashboard() {
                             </svg>
                         </div>
                         <div className="stat-title">Funds to Go</div>
-                        <div className="stat-value">{toGo}</div>
+                        <div className="stat-value">{toGo ? toGo : 0}</div>
                         {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
                     </div>
                 </div>
