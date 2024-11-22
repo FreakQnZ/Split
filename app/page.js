@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { TextGenerateEffect } from "./components/ui/text-generate-effect";
 import Navbar from "./components/navbar";
+import Link from "next/link";
 
 const words = "Add bills and split with ease, anywhere";
 
@@ -25,7 +26,9 @@ const Home = () => {
               Securely split bills among friends, ensuring fair payments for
               everyone.
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <Link className="btn btn-primary" href="/auth">
+              Get Started
+            </Link>
           </div>
         </div>
       </div>
